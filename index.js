@@ -47,6 +47,11 @@ app.get("/delete-post", (req, res) => {
     res.redirect("/");
 });
 
+// Catch-all route to handle all other requests not covered above
+app.get('*', (req, res) => {
+    res.status(404).send('404 Page Not Found'); // Handling undefined routes
+});
+
 // Start the server on the specified port
 app.listen(port, () => {
     console.log(`App is up at port ${port}`);
