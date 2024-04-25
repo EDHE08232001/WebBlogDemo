@@ -1,6 +1,7 @@
 // Import necessary modules
 import express from 'express';
 import bodyParser from 'body-parser';
+import { fileURLToPath } from 'url';
 import path from 'path';
 
 // Create an instance of express
@@ -9,6 +10,9 @@ const port = process.env.PORT || 3000;
 
 // Temporary storage for posts
 let posts = [];
+
+// Derive the directory name from the module URL
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Set the view engine to ejs and the views directory
 app.set('view engine', 'ejs');
